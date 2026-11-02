@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public KeyCode left = KeyCode.A, up=KeyCode.W, down=KeyCode.S, right=KeyCode.D, dash=KeyCode.Space;
 
     [SerializeField] float dashDistance;
+    [SerializeField] float dashDuration;
     [SerializeField] float dashCooldown;
 
     [SerializeField] float speed = 6f;
@@ -27,18 +29,20 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(left)) moveInput.x -= 1;
         if (Input.GetKey(right)) moveInput.x += 1;
         moveInput = moveInput.normalized;
-    }
-    void FixedUpdate()
-    {
+
         if (dashCooldown <= 0 && Input.GetKeyDown(dash))
         {
-            Dash();
+            StartCoroutine(Dash());
             dashCooldown = 1f; // Reset cooldown
         }
         else
         {
-            dashCooldown -= Time.fixedDeltaTime;
+            dashCooldown -= Time.deltaTime;
         }
+    }
+    void FixedUpdate()
+    {
+        if (isDashing) return;
 
         if (isOnLadder)
         {
@@ -53,9 +57,13 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Move(float direction)
     {
-        Vector2 movement = new Vector2(direction * speed, rb.linearVelocity.y);
-        rb.linearVelocity = movement;
-        float absoluteSpeed = Mathf.Abs(direction * speed);
+        if (!canWalk) return;
+        else
+        {
+            Vector2 movement = new Vector2(direction * speed, rb.linearVelocity.y);
+            rb.linearVelocity = movement;
+            float absoluteSpeed = Mathf.Abs(direction * speed);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -63,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isOnLadder = true;
+            canWalk = false;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -70,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isOnLadder = false;
+            canWalk = true;
             rb.gravityScale = 1;
         }
     }
@@ -78,9 +88,20 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movement = new Vector2(rb.linearVelocity.x, verticalDirection * speed);
         rb.linearVelocity = movement;
     }
-    private void Dash()
+    private IEnumerator Dash()
     {
+        isDashing = true;
+        canWalk = false;
         Vector2 dashDirection = moveInput.normalized;
+        if (dashDirection == Vector2.zero)
+        {
+            dashDirection = new Vector2(transform.localScale.x, 0).normalized;
+        }
+        print(dashDirection + "" + dashDistance);
+
         rb.AddForce(dashDirection * dashDistance, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(dashDuration);
+        canWalk = true;
+        isDashing = false;
     }
 }

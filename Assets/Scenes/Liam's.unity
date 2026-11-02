@@ -293,6 +293,9 @@ MonoBehaviour:
   up: 119
   down: 115
   right: 100
+  dash: 32
+  dashDistance: 4
+  dashCooldown: 0
   speed: 6
   isOnLadder: 0
 --- !u!1 &494058753

@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ladder
+  - GrapPoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - GrapPoint
   - Water
   - UI
   - 

@@ -7,7 +7,9 @@ public class RoomGenTwo : MonoBehaviour
     public Room startRoom;
     public Room currentRoom;
     public Room nextRoom;
-    public Vector3 position;
+    public Vector2 grid;
+    public int x;
+    public int y;
     public int roomAmount;
 
     public int RoomPicker(Room[] roomTypes)
@@ -15,30 +17,34 @@ public class RoomGenTwo : MonoBehaviour
         int roomType = UnityEngine.Random.Range(1, roomTypes.Length);
         return roomType;
     }
-    /*public Vector3 FindPostion()
+    public void SetGridLocation()
     {
-
-    }*/
+        x++;
+        y++;
+        grid.y = y * 50;
+        grid.x = x * 50;
+    }
     public void CreateStartRoom(Room room)
     {
         Instantiate(room, new Vector3(0,0,0), Quaternion.identity);
     }
-    public void GenerateRoom(Room room, Vector3 location, int roomAmount)
+    public void GenerateRoom(Room room, Vector2 location, int roomAmount)
     {
         Instantiate(room, location, Quaternion.identity);
     }
-    public void WholeMapGeneration(Vector3 location, int roomAmount)
+    public void WholeMapGeneration(int roomAmount)
     {
         CreateStartRoom(startRoom);
-        for (int i = 0; i < roomTypes.Length; i++)
+        for (int i = 0; i < roomAmount; i++)
         {
-            GenerateRoom(roomTypes[RoomPicker(roomTypes)], location, roomAmount);
+            SetGridLocation();
+            GenerateRoom(roomTypes[RoomPicker(roomTypes)], grid, roomAmount);
         }
     }
 
 
     private void Start()
     {
-        WholeMapGeneration(position, roomAmount);
+        WholeMapGeneration(roomAmount);
     }
 }

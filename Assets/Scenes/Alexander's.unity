@@ -390,6 +390,10 @@ MonoBehaviour:
   startRoom: {fileID: 4269117571531786448, guid: 3394bce023a8d794a94b524e1bc3974c, type: 3}
   currentRoom: {fileID: 0}
   nextRoom: {fileID: 0}
+  grid: {x: 0, y: 0}
+  x: 0
+  y: 0
+  roomAmount: 10
 --- !u!1001 &996922937
 PrefabInstance:
   m_ObjectHideFlags: 0

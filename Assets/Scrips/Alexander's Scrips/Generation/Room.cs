@@ -6,7 +6,6 @@ public class Room : MonoBehaviour
     public string roomID;
     public string roomType;
     public int maxAmount;
-    public List<ConnectionPoint> connectionPoints;
     private void SetValue()
     {
         thisRoom = this.gameObject;

@@ -56,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
             float verticalDirection = 0;
             if (Input.GetKey(up)) verticalDirection += 1;
             if (Input.GetKey(down)) verticalDirection -= 1;
-            Debug.Log("pressed arrow");
             LaderClimb(verticalDirection);
             rb.gravityScale = 0;
         }

@@ -7,11 +7,16 @@ public class RoomGenTwo : MonoBehaviour
     public Room startRoom;
     public Room currentRoom;
     public Room nextRoom;
-    public Vector2 grid;
+    public Vector2 position;
+    public bool[,] grid;
     public int x;
     public int y;
     public int roomAmount;
 
+    private int RNGOne()
+    {
+        return UnityEngine.Random.Range(-1,1);
+    }
     public int RoomPicker(Room[] roomTypes)
     {
         int roomType = UnityEngine.Random.Range(1, roomTypes.Length);
@@ -19,10 +24,14 @@ public class RoomGenTwo : MonoBehaviour
     }
     public void SetGridLocation()
     {
-        x++;
-        y++;
-        grid.y = y * 50;
-        grid.x = x * 50;
+        grid[x, y] = grid[x+RNGOne(), y+RNGOne()];
+
+        if (!grid[x, y])
+        {
+            grid[x, y] = true;
+        }
+        position.y = y * 50;
+        position.x = x * 50;
     }
     public void CreateStartRoom(Room room)
     {
@@ -38,7 +47,7 @@ public class RoomGenTwo : MonoBehaviour
         for (int i = 0; i < roomAmount; i++)
         {
             SetGridLocation();
-            GenerateRoom(roomTypes[RoomPicker(roomTypes)], grid, roomAmount);
+            GenerateRoom(roomTypes[RoomPicker(roomTypes)], position, roomAmount);
         }
     }
 

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 public class Room : MonoBehaviour
 {
@@ -5,25 +6,14 @@ public class Room : MonoBehaviour
     public string roomID;
     public string roomType;
     public int maxAmount;
-    public ConnectionPoint[] connectionPoints;
-    GameObject[] connectionPointsObj;
+    public List<ConnectionPoint> connectionPoints;
     private void SetValue()
     {
         thisRoom = this.gameObject;
-        for (int i = 0; i < connectionPoints.Length; i++)
-        {
-
-        }
     }
 
-    private void Update()
+    private void Start()
     {
         SetValue();
     }
-}
-
-public class ConnectionPoint : MonoBehaviour
-{
-    public GameObject connectionPoint;
-    public bool isConnected = false;
 }

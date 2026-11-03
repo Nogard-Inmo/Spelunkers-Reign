@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
     //Movement
-    [SerializeField] public KeyCode left = KeyCode.A, up=KeyCode.W, down=KeyCode.S, right=KeyCode.D, dash=KeyCode.Space;
+    public KeyCode left = KeyCode.A, up=KeyCode.W, down=KeyCode.S, right=KeyCode.D, dash=KeyCode.Space, grapple=KeyCode.G;
 
     [SerializeField] float dashDistance;
     [SerializeField] float dashDuration;
@@ -14,10 +14,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] bool isOnLadder;
     [SerializeField] bool isDashing;
+    [SerializeField] bool isGrappling;
     [SerializeField] bool canWalk;
 
     Rigidbody2D rb;
     Vector2 moveInput;
+    [SerializeField] LayerMask grappleLayerMask;
 
     void Start()
     {
@@ -39,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
         {
             dashCooldown -= Time.deltaTime;
         }
+
+        if (Input.GetKeyDown(grapple) && !isGrappling)
+        {
+            StartCoroutine(Grapple());
+        }    
     }
     void FixedUpdate()
     {
@@ -62,7 +69,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector2 movement = new Vector2(direction * speed, rb.linearVelocity.y);
             rb.linearVelocity = movement;
-            float absoluteSpeed = Mathf.Abs(direction * speed);
         }
     }
 
@@ -71,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isOnLadder = true;
-            canWalk = false;
+            //canWalk = false;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -79,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isOnLadder = false;
-            canWalk = true;
+            //canWalk = true;
             rb.gravityScale = 1;
         }
     }
@@ -103,5 +109,44 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
         canWalk = true;
         isDashing = false;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(transform.position, transform.up * 10);
+    }
+    private IEnumerator Grapple()
+    {
+        RaycastHit2D grappleRay = Physics2D.Raycast(transform.position, transform.up, 10f, grappleLayerMask);
+        if (grappleRay.collider != null && grappleRay.collider.CompareTag("GrapPoint"))
+        {
+            canWalk = false;
+            Vector2 grapplePoint = grappleRay.point;
+            print("Grappling to: " + grapplePoint);
+            yield return new WaitForSeconds(0.1f); // Small delay to ensure the grapple point is set
+            isGrappling = true;
+            while (Vector2.Distance(transform.position, grapplePoint) > 0.5f && isGrappling)
+            {
+                if (Input.GetKeyDown(grapple))
+                {
+                    //rb.linearVelocity = Vector2.zero; // Stop moving when grapple is canceled
+                    canWalk = true;
+                    isGrappling = false;
+                    yield break; // Exit the coroutine
+                }
+                else 
+                { 
+                    Vector2 direction = (grapplePoint - (Vector2)transform.position).normalized;
+                    rb.linearVelocity = direction * speed;
+                    yield return null;
+
+                    print("Current Position: " + transform.position);
+                    print("Distance to Grapple Point: " + Vector2.Distance(transform.position, grapplePoint));
+                }
+            }
+            isGrappling = false;
+            canWalk = true;
+
+        }
+        yield return null;  
     }
 }

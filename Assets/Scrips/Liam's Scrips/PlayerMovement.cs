@@ -104,7 +104,6 @@ public class PlayerMovement : MonoBehaviour
         {
             dashDirection = new Vector2(transform.localScale.x, 0).normalized;
         }
-        print(dashDirection + "" + dashDistance);
 
         rb.AddForce(dashDirection * dashDistance, ForceMode2D.Impulse);
         yield return new WaitForSeconds(dashDuration);

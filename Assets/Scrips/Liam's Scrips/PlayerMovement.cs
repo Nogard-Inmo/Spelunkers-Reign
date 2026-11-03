@@ -129,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetKeyDown(grapple))
                 {
                     //rb.linearVelocity = Vector2.zero; // Stop moving when grapple is canceled
+                    //rb.linearVelocity = Vector2.zero; // Stop moving when grapple is canceled
                     canWalk = true;
                     isGrappling = false;
                     yield break; // Exit the coroutine

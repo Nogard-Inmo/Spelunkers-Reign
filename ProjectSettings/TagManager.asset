@@ -7,6 +7,10 @@ TagManager:
   - Ladder
   - GrapPoint
   - Enemy
+  - UpPoint
+  - RightPoint
+  - DownPoint
+  - LeftPoint
   layers:
   - Default
   - TransparentFX

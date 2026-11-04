@@ -9,30 +9,6 @@ public class DroneEnemy : EnemyBase
     [Header("Combat")]
     [SerializeField] private float shootDistance = 6f;
 
-    private NavMeshAgent agent;
-    private Collider2D playerCollider;
-
-    private void Awake()
-    {
-        print("Woke up correctly");
-    }
-
-    private void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        // Required for NavMeshPlus 2D
-
-       //agent.updateRotation = false;
-       //agent.updateUpAxis = false;
-        
-        agent.speed = speed;
-
-        if (player == null)
-            player = GameObject.FindGameObjectWithTag("Player");
-
-        playerCollider = player.GetComponent<Collider2D>();
-    }
-
     private void Update()
     {
         attackCooldown -= Time.deltaTime;
@@ -62,10 +38,7 @@ public class DroneEnemy : EnemyBase
             agent.ResetPath();
             return;
         }
-     
             agent.isStopped = false;
-            agent.SetDestination(player.transform.position);
-        
     }
 
     private bool HasLineOfSight()

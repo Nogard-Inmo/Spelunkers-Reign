@@ -19,7 +19,7 @@ public class RoomGenTwo : MonoBehaviour
     
     public int RNGxy()
     {
-        return UnityEngine.Random.Range(-1, 1);
+        return UnityEngine.Random.Range(-1, 2);
     }
     public int RoomPicker(Room[] roomTypes)
     {

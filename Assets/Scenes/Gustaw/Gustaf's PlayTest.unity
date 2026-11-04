@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_BuildHeightMesh: 0
   m_MinRegionArea: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: 52470355d05edcb4f8b072ed2b08272f, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 493dc6429b241464dad54696c6486dee, type: 2}
 --- !u!114 &286640920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2943,9 +2943,12 @@ MonoBehaviour:
   speed: 5
   attackCooldown: 1
   attackTime: 1
+  attackRange: 0
   rb: {fileID: 0}
   playerPos: {x: 0, y: 0}
   player: {fileID: 152333773}
+  agent: {fileID: 0}
+  playerCollider: {fileID: 0}
   canCollideWith:
     serializedVersion: 2
     m_Bits: 65

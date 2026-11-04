@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
     public int currentHealth;
     public bool canRegen = true;
 
+    public bool isEnemy;
+
     void Awake()
     {
         currentHealth = maxHealth;
@@ -22,10 +24,18 @@ public class Health : MonoBehaviour
             TakeDamage(10);
             print("dealt 10Damage ig");
         }
-
+        if(!isEnemy)
+        {
+            UpdateHealthBar();
+        }
         float ratio = (float)currentHealth / maxHealth;
         healthbarBar.localScale = new Vector2(ratio, healthbarBar.localScale.y);
 
+    }
+    public void UpdateHealthBar()
+    {
+        float ratio = (float)currentHealth / maxHealth;
+        healthbarBar.localScale = new Vector2(ratio, healthbarBar.localScale.y);
     }
 
     public void TakeDamage(int damage)

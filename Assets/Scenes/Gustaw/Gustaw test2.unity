@@ -799,7 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7d41dc86183b04b9fa25016cd4e9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoverMoveUI
-  moveAmount: 50
+  moveAmount: 55
   speed: 8
 --- !u!1 &1508035531
 GameObject:

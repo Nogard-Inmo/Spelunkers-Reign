@@ -31,6 +31,6 @@ public class HoverMoveUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     void Update()
     {
-        rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, targetPosition, Time.deltaTime);
+        rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, targetPosition, speed * Time.deltaTime);
     }
 }

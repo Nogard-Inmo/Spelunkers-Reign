@@ -30,7 +30,7 @@ public class PlayerGunsBase : MonoBehaviour
         if (shootCooldownTimer < 0f)
             shootCooldownTimer = 0f;
         
-        if(shootCooldown < 0f && Input.GetKey(shootKey))
+        if(Input.GetKey(shootKey))
         {
             print("shooting");
             Shoot();
@@ -39,6 +39,10 @@ public class PlayerGunsBase : MonoBehaviour
 
     public virtual void Shoot()
     {
+        print("shooting");
+        if (shootCooldownTimer > 0f)
+            return;
+
         shootCooldownTimer = shootCooldown;
         RaycastHit2D shootLine = Physics2D.Raycast(firePoint.position, mousePos - (Vector2)firePoint.position, Mathf.Infinity, shootLayerMask);
         print(shootLine.collider.name);

@@ -29,7 +29,6 @@ public class EnemyBase : MonoBehaviour
         Health targetHealth = target.GetComponent<Health>();
         if (targetHealth != null)
         {
-            print("Attacking " + target.name + " for " + damage + " damage.");
             targetHealth.TakeDamage(damage);
         }
     }

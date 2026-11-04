@@ -117,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator Grapple()
     {
         RaycastHit2D grappleRay = Physics2D.Raycast(transform.position, transform.up, 10f, grappleLayerMask);
-        if (grappleRay.collider != null && grappleRay.collider.CompareTag("GrapPoint"))
+        if (grappleRay.collider != null && grappleRay.collider.CompareTag("GrapPoint") && !isDashing)
         {
             canWalk = false;
             Vector2 grapplePoint = grappleRay.point;

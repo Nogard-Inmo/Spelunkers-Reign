@@ -12,21 +12,25 @@ public class DroneEnemy : EnemyBase
     private NavMeshAgent agent;
     private Collider2D playerCollider;
 
+    private void Awake()
+    {
+        print("Woke up correctly");
+    }
+
     private void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
+        // Required for NavMeshPlus 2D
+
+       //agent.updateRotation = false;
+       //agent.updateUpAxis = false;
+        
+        agent.speed = speed;
 
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
 
         playerCollider = player.GetComponent<Collider2D>();
-
-        agent = GetComponent<NavMeshAgent>();
-
-        // Required for NavMeshPlus 2D
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-
-        agent.speed = speed;
     }
 
     private void Update()

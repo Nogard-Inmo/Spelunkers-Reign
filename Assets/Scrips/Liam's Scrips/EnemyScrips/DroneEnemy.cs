@@ -47,8 +47,7 @@ public class DroneEnemy : EnemyBase
 
     public override void MoveToPlayer()
     {
-        float distanceToPlayer =
-            Vector2.Distance(transform.position, playerPos);
+        float distanceToPlayer = Vector2.Distance(transform.position, playerPos);
 
         bool hasLOS = HasLineOfSight();
 
@@ -59,9 +58,10 @@ public class DroneEnemy : EnemyBase
             agent.ResetPath();
             return;
         }
-
-        agent.isStopped = false;
-        agent.SetDestination(player.transform.position);
+     
+            agent.isStopped = false;
+            agent.SetDestination(player.transform.position);
+        
     }
 
     private bool HasLineOfSight()

@@ -11,6 +11,7 @@ TagManager:
   - RightPoint
   - DownPoint
   - LeftPoint
+  - TeleportPoint
   layers:
   - Default
   - TransparentFX

@@ -4,19 +4,24 @@ public class EnemyBase : MonoBehaviour
 {
     public int damage;
     public float speed;
-    [SerializeField] Rigidbody2D rb;
+    public float attackCooldown;
+    public float attackTime;
+    public Rigidbody2D rb;
 
-    Vector2 playerPos;
+    public Vector2 playerPos;
 
-    [SerializeField] GameObject player;
+    public GameObject player;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
+        if (player == null) player = GameObject.FindGameObjectWithTag("Player");
     }
     private void Update()
     {
         LocatePlayer();
+        MoveToPlayer();
+        print("Hello");
     }
 
     public virtual void Attack(GameObject target)
@@ -24,13 +29,14 @@ public class EnemyBase : MonoBehaviour
         Health targetHealth = target.GetComponent<Health>();
         if (targetHealth != null)
         {
+            print("Attacking " + target.name + " for " + damage + " damage.");
             targetHealth.TakeDamage(damage);
         }
     }
     public virtual void LocatePlayer()
     {
         playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
-        MoveToPlayer();
+        
     }
 
     public virtual void MoveToPlayer()

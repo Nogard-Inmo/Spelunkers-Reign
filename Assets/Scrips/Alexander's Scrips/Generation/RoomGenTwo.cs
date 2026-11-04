@@ -1,37 +1,32 @@
+using NUnit.Framework;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class RoomGenTwo : MonoBehaviour
 {
-    [SerializeField] Room[] roomTypes;
+    [SerializeField] RoomManager roomManager;
+    public Room[] roomTypes;
     public Room startRoom;
-    public Room currentRoom;
-    public Room nextRoom;
+    public int overflow = 0;
     public Vector2 position;
-    public bool[,] grid;
     public int x;
-    public int y;
     public int roomAmount;
-
-    private int RNGOne()
-    {
-        return UnityEngine.Random.Range(-1,1);
-    }
+    //public 
     public int RoomPicker(Room[] roomTypes)
     {
+    Retry:
+        overflow++;
         int roomType = UnityEngine.Random.Range(1, roomTypes.Length);
-        return roomType;
-    }
-    public void SetGridLocation()
-    {
-        grid[x, y] = grid[x+RNGOne(), y+RNGOne()];
-
-        if (!grid[x, y])
+        if (roomTypes[roomType].maxAmount >= roomTypes[roomType].roomInstances)
+            return roomType;
+        else if (overflow < 20)
         {
-            grid[x, y] = true;
+            overflow = 0;
+            return 0;
         }
-        position.y = y * 50;
-        position.x = x * 50;
+        else
+            goto Retry;
     }
     public void CreateStartRoom(Room room)
     {
@@ -40,13 +35,15 @@ public class RoomGenTwo : MonoBehaviour
     public void GenerateRoom(Room room, Vector2 location, int roomAmount)
     {
         Instantiate(room, location, Quaternion.identity);
+        room.roomInstances++;
     }
     public void WholeMapGeneration(int roomAmount)
     {
         CreateStartRoom(startRoom);
         for (int i = 0; i < roomAmount; i++)
         {
-            SetGridLocation();
+            x++;
+            position.x = x * 50;
             GenerateRoom(roomTypes[RoomPicker(roomTypes)], position, roomAmount);
         }
     }
@@ -54,6 +51,7 @@ public class RoomGenTwo : MonoBehaviour
 
     private void Start()
     {
+        roomTypes = roomManager.roomTypes;
         WholeMapGeneration(roomAmount);
     }
 }

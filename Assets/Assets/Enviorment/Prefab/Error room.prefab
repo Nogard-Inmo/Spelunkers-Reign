@@ -107,7 +107,5 @@ MonoBehaviour:
   thisRoom: {fileID: 0}
   roomID: 
   roomType: ErrorRoom
-  maxAmount: 0
-  connectionPoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  roomInstances: 0
+  maxAmount: 99999999

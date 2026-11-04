@@ -1,0 +1,63 @@
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class PlayerGunsBase : MonoBehaviour
+{
+    public bool hasGun = false;
+    public GameObject gun;
+    public Vector2 mousePos;
+    public Transform firePoint;
+    public float shootCooldown = 0.5f;
+    public float shootCooldownTimer = 0f;
+
+    public LayerMask shootLayerMask;
+    public int damage = 10;
+
+    public KeyCode shootKey = KeyCode.Mouse0;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public virtual void Start()
+    {
+        
+    }
+
+
+    public virtual void Update()
+    {
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        shootCooldownTimer -= Time.deltaTime;
+        if (shootCooldownTimer < 0f)
+            shootCooldownTimer = 0f;
+        
+        if(shootCooldown < 0f && Input.GetKey(shootKey))
+        {
+            print("shooting");
+            Shoot();
+        }
+    }
+
+    public virtual void Shoot()
+    {
+        shootCooldownTimer = shootCooldown;
+        RaycastHit2D shootLine = Physics2D.Raycast(firePoint.position, mousePos - (Vector2)firePoint.position, Mathf.Infinity, shootLayerMask);
+        print(shootLine.collider.name);
+        if (shootLine.collider != null)
+        {
+            if (shootLine.collider.CompareTag("Enemy"))
+            {
+                Health targetHealth = shootLine.collider.GetComponent<Health>();
+
+                if (targetHealth != null)
+                {
+                    targetHealth.TakeDamage(damage);
+                }
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Debug.DrawLine(firePoint.position, mousePos - (Vector2)firePoint.position, Color.red);
+    }
+}

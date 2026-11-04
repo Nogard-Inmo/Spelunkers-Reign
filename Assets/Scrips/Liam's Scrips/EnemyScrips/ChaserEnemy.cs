@@ -1,16 +1,30 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ChaserEnemy : EnemyBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] Collider2D attackHitbox;
+    bool playerInHitBox;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        attackCooldown -= Time.deltaTime;
+
+        if (attackCooldown < 0)
+            attackCooldown = 0;
+
+        LocatePlayer();
+        MoveToPlayer();
+        if (Vector2.Distance(transform.position, playerPos) <= attackRange && playerInHitBox)
+        { 
+            Attack(player);
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject == player)
+        {
+            playerInHitBox = true;
+        }
     }
 }

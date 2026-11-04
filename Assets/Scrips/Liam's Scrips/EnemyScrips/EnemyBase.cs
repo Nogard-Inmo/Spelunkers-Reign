@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyBase : MonoBehaviour
 {
@@ -6,14 +7,33 @@ public class EnemyBase : MonoBehaviour
     public float speed;
     public float attackCooldown;
     public float attackTime;
+    public float attackRange;
     public Rigidbody2D rb;
 
     public Vector2 playerPos;
 
     public GameObject player;
 
+    public NavMeshAgent agent;
+
+    public Collider2D playerCollider;
+
     private void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
+        
+        // Required for NavMeshPlus 2D
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+
+        agent.speed = speed;
+
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+
+        playerCollider = player.GetComponent<Collider2D>();
+
+
         if (rb == null) rb = GetComponent<Rigidbody2D>();
         if (player == null) player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -21,7 +41,6 @@ public class EnemyBase : MonoBehaviour
     {
         LocatePlayer();
         MoveToPlayer();
-        print("Hello");
     }
 
     public virtual void Attack(GameObject target)
@@ -40,6 +59,25 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void MoveToPlayer()
     {
-        rb.MovePosition(Vector2.MoveTowards(rb.position, playerPos, speed * Time.deltaTime));
+        float distanceToPlayer = Vector2.Distance(transform.position, playerPos);
+        if (distanceToPlayer < attackRange)
+        {
+            agent.isStopped = true;
+            agent.ResetPath();
+        }
+        else
+        {
+            agent.isStopped = false;
+
+            agent.SetDestination(player.transform.position);
+        }
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+#endif
 }

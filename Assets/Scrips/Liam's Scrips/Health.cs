@@ -28,9 +28,6 @@ public class Health : MonoBehaviour
         {
             UpdateHealthBar();
         }
-        float ratio = (float)currentHealth / maxHealth;
-        healthbarBar.localScale = new Vector2(ratio, healthbarBar.localScale.y);
-
     }
     public void UpdateHealthBar()
     {

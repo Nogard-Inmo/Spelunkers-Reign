@@ -5,6 +5,7 @@ public class Room : MonoBehaviour
     public GameObject thisRoom;
     public string roomID;
     public string roomType;
+    public int roomInstances;
     public int maxAmount;
     private void SetValue()
     {

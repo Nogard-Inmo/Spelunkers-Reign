@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.K))
         {
             print("K pressed");
-            TakeDamage(10);
+            TakeDamage(1);
             print("dealt 10Damage ig");
         }
         if(!isEnemy)

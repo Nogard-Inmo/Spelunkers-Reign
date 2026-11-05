@@ -67,7 +67,7 @@ namespace NavMeshPlus.Extensions
         public void FitToTilemaps()
         {
 #if UNITY_2022_2_OR_NEWER
-            var tilemaps = FindObjectsByType<Tilemap>(FindObjectsSortMode.None);
+            var tilemaps = FindObjectsByType<Tilemap>();
 #else
             var tilemaps = FindObjectsOfType<Tilemap>();
 #endif

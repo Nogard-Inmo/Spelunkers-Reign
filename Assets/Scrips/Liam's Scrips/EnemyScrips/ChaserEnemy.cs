@@ -20,11 +20,26 @@ public class ChaserEnemy : EnemyBase
             Attack(player);
         }
     }
-    private void OnTriggerStay(Collider other)
+
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject == player)
         {
+            print(other.gameObject.name + " is in the hitbox");
             playerInHitBox = true;
+        }
+    }
+
+    public override void Attack(GameObject target)
+    {
+        if(playerInHitBox && attackCooldown <= 0)
+        {
+            attackCooldown = attackTime;
+            base.Attack(target);
+        }
+        else
+        {
+            Debug.Log("Player not in hitbox or attack on cooldown");
         }
     }
 }

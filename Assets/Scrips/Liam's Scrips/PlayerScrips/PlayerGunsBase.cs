@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerGunsBase : MonoBehaviour
 {
     public bool hasGun = false;
-    public GameObject gun;
+    public GameObject gunPivot;
     public Vector2 mousePos;
     public Transform firePoint;
     public float shootCooldown = 0.5f;
@@ -14,6 +14,9 @@ public class PlayerGunsBase : MonoBehaviour
     public int damage = 10;
 
     public KeyCode shootKey = KeyCode.Mouse0;
+
+
+    [SerializeField] private GameObject bulletPrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public virtual void Start()
@@ -26,30 +29,38 @@ public class PlayerGunsBase : MonoBehaviour
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        Vector2 aimDir = (mousePos - (Vector2)transform.position).normalized;
+        gunPivot.transform.right = aimDir;
+
         shootCooldownTimer -= Time.deltaTime;
         if (shootCooldownTimer < 0f)
             shootCooldownTimer = 0f;
         
         if(Input.GetKey(shootKey))
         {
-            print("shooting");
             Shoot();
         }
     }
 
     public virtual void Shoot()
     {
-        print("shooting");
         if (shootCooldownTimer > 0f)
             return;
 
         shootCooldownTimer = shootCooldown;
         RaycastHit2D shootLine = Physics2D.Raycast(firePoint.position, mousePos - (Vector2)firePoint.position, Mathf.Infinity, shootLayerMask);
-        print(shootLine.collider.name);
+
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+
+
+        print("shooting:" + shootLine.collider.name);
         if (shootLine.collider != null)
         {
             if (shootLine.collider.CompareTag("Enemy"))
             {
+                
+
                 Health targetHealth = shootLine.collider.GetComponent<Health>();
 
                 if (targetHealth != null)
@@ -62,6 +73,7 @@ public class PlayerGunsBase : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Debug.DrawLine(firePoint.position, mousePos - (Vector2)firePoint.position, Color.red);
+        Debug.DrawLine(firePoint.position, mousePos);
+        Debug.DrawRay(firePoint.position, mousePos - (Vector2)firePoint.position, Color.red);
     }
 }

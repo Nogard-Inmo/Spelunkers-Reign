@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        playerStats = GetComponent<PlayerStats>();
         rb = GetComponent<Rigidbody2D>();
     }
     void Update()

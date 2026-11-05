@@ -1,20 +1,14 @@
 
 using UnityEngine;
 
-public class BoxDrop : MonoBehaviour
+public class BoxDrop : Health
 {
     public GameObject[] drops;
-    public int health = 100;
 
-    public void TakeDamage(int damage)
+   public override void Die()
     {
-        health -= damage;
-
-        if (health <= 0)
-        {
-            DropItem();
-            Destroy(gameObject);
-        }
+        DropItem();
+        base.Die();
     }
 
     void DropItem()

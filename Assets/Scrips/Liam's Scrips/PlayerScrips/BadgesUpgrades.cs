@@ -27,6 +27,7 @@ public class BadgesUpgrades : MonoBehaviour
 
     public void ActivateBadge(int badgeIndex)
     {
+        print("Activating badge: " + badges[badgeIndex].badgeName);
         if (badgeIndex < 0 || badgeIndex >= badges.Length)
         {
             Debug.LogError("Invalid badge index");
@@ -34,12 +35,14 @@ public class BadgesUpgrades : MonoBehaviour
         }
         if (badges[badgeIndex].amountOfBadges > 0 && badges[badgeIndex].amountOfBadgesEquipped < badgeSlots)
         {
+            print("Activating badge: " + badges[badgeIndex].badgeName);
             PlayerStats playerStats = GetComponent<PlayerStats>();
-            playerStats.ammoMultiplier *= badges[badgeIndex].ammoMultiplier;
-            playerStats.reloadSpeed *= badges[badgeIndex].reloadSpeed;
-            playerStats.regenAmountMultiplier *= badges[badgeIndex].regenAmountMultiplier;
-            playerStats.maxHealthMultiplier *= badges[badgeIndex].maxHealthMultiplier;
-            playerStats.damageMultiplier *= badges[badgeIndex].damageMultiplier;
+
+            playerStats.ammoCount = Mathf.RoundToInt(playerStats.ammoCount * badges[badgeIndex].ammoMultiplier);
+            playerStats.reloadTime = playerStats.reloadTime * badges[badgeIndex].reloadSpeed;
+            playerStats.regenAmount = Mathf.RoundToInt(playerStats.regenAmount * badges[badgeIndex].regenAmountMultiplier);
+            playerStats.maxHealth = Mathf.RoundToInt(playerStats.maxHealth * badges[badgeIndex].maxHealthMultiplier);
+            playerStats.damage = Mathf.RoundToInt(playerStats.damage * badges[badgeIndex].damageMultiplier);
 
             // Decrease the amount of this badge
             badges[badgeIndex].amountOfBadges--;
@@ -52,5 +55,29 @@ public class BadgesUpgrades : MonoBehaviour
         }
     }
 
-
+    public void DeactivateBadge(int badgeIndex)
+    {
+        if (badgeIndex < 0 || badgeIndex >= badges.Length)
+        {
+            Debug.LogError("Invalid badge index");
+            return;
+        }
+        if (badges[badgeIndex].amountOfBadgesEquipped > 0)
+        {
+            PlayerStats playerStats = GetComponent<PlayerStats>();
+            playerStats.ammoCount = Mathf.RoundToInt(playerStats.ammoCount / badges[badgeIndex].ammoMultiplier);
+            playerStats.reloadTime = playerStats.reloadTime / badges[badgeIndex].reloadSpeed;
+            playerStats.regenAmount = Mathf.RoundToInt(playerStats.regenAmount / badges[badgeIndex].regenAmountMultiplier);
+            playerStats.maxHealth = Mathf.RoundToInt(playerStats.maxHealth / badges[badgeIndex].maxHealthMultiplier);
+            playerStats.damage = Mathf.RoundToInt(playerStats.damage / badges[badgeIndex].damageMultiplier);
+            // Increase the amount of this badge
+            badges[badgeIndex].amountOfBadges++;
+            // Decrease the amount of this badge equipped
+            badges[badgeIndex].amountOfBadgesEquipped--;
+        }
+        else
+        {
+            Debug.Log("No more badges of this type equipped to deactivate.");
+        }
+    }
 }

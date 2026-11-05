@@ -24,7 +24,7 @@ public class PlayerHealth : Health
     public void UpdateHealthBar()
     {
         float ratio = (float)currentHealth / maxHealth;
-        healthbarBar.localScale = new Vector2(ratio, healthbarBar.localScale.y);
+        healthbarBar.localScale = new Vector2(ratio, healthbarBar.localScale.y);// Update the scale of the health bar based on the current health ratio
     }
     IEnumerator NaturalHealthRegen()
     {

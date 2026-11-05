@@ -18,10 +18,13 @@ public class PlayerGunsBase : MonoBehaviour
 
     [SerializeField] private GameObject bulletPrefab;
 
+    //Alex variables
+    AnimatePlayer aM;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public virtual void Start()
     {
-        
+        aM = GetComponent<AnimatePlayer>();
     }
 
 
@@ -30,8 +33,7 @@ public class PlayerGunsBase : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Vector2 aimDir = (mousePos - (Vector2)transform.position).normalized;
-        gunPivot.transform.right = aimDir;
-
+            gunPivot.transform.right = aimDir;
         shootCooldownTimer -= Time.deltaTime;
         if (shootCooldownTimer < 0f)
             shootCooldownTimer = 0f;

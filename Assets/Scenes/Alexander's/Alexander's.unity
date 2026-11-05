@@ -392,7 +392,7 @@ MonoBehaviour:
   currentRoom: {fileID: 0}
   x: 500
   y: 500
-  roomAmount: 25
+  roomAmount: 20
 --- !u!114 &792131460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +408,7 @@ MonoBehaviour:
   roomTypes:
   - {fileID: 3404956341883781952, guid: bfa4f26a065fe6a48be4be95737bcdad, type: 3}
   - {fileID: 6716065896553670370, guid: 3394bce023a8d794a94b524e1bc3974c, type: 3}
+  - {fileID: 2366095192400111829, guid: 90e9ee918dfca1c4f9f8ff7044dd07b6, type: 3}
 --- !u!1001 &996922937
 PrefabInstance:
   m_ObjectHideFlags: 0

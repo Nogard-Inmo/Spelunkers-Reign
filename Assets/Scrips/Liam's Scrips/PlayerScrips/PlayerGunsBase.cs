@@ -1,9 +1,12 @@
+using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using System.Collections;
 
 public class PlayerGunsBase : MonoBehaviour
 {
+    //Gun stuff
+    [Header("Gun Settings")]
     public bool hasGun = false;
     public GameObject gunPivot;
     public Vector2 mousePos;
@@ -14,13 +17,22 @@ public class PlayerGunsBase : MonoBehaviour
     public LayerMask shootLayerMask;
 
     public KeyCode shootKey = KeyCode.Mouse0;
+    public KeyCode reloadKey = KeyCode.R;
 
+    public GameObject bulletPrefab;
 
-    [SerializeField] private GameObject bulletPrefab;
     PlayerStats playerStats;
     int currentAmmo;
     bool hasAmmo = true;
     public TMPro.TMP_Text ammoText;
+
+    //Grenade stuff
+    [Header("Grenade Settings")]
+    public float grenadeThrowCooldown;
+    public float grenadeThrowCooldownTimer;
+
+    public KeyCode grenadeThrow = KeyCode.Mouse1;
+    public GameObject grenadePrefab;
 
 
     //Alex variables
@@ -52,15 +64,38 @@ public class PlayerGunsBase : MonoBehaviour
 
         if (shootCooldownTimer < 0f)
             shootCooldownTimer = 0f;
+
+        grenadeThrowCooldownTimer -= Time.deltaTime;
+        if(grenadeThrowCooldownTimer < 0f)
+            grenadeThrowCooldownTimer = 0f;
         
         if(Input.GetKey(shootKey) && hasAmmo)
         {
             Shoot();
         }
-        if(Input.GetKeyDown(KeyCode.R) && currentAmmo != playerStats.ammoCount)
+        if(Input.GetKeyDown(reloadKey) && currentAmmo != playerStats.ammoCount)
         {
             StartCoroutine(Reload());
         }
+        if(Input.GetKey(grenadeThrow))
+        {
+            ThrowGrenade();
+        }
+    }
+    public void ThrowGrenade()
+    {
+        if (grenadeThrowCooldownTimer > 0f)
+            return;
+
+        grenadeThrowCooldownTimer = grenadeThrowCooldown;
+
+        GameObject grenade = Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
+
+        ImpactGrenade impactGrenade = grenade.GetComponent<ImpactGrenade>();
+
+        Vector2 direction = (mousePos - (Vector2)firePoint.position).normalized;
+
+        impactGrenade.Launch(direction + Vector2.up * 0.5f);
     }
 
     public virtual void Shoot()

@@ -15,3 +15,4 @@ public class Spikes : MonoBehaviour
         }
     }
 }
+//if collision take damage from player health script

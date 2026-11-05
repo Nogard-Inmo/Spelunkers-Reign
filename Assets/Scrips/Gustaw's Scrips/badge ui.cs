@@ -13,7 +13,7 @@ public class HoverMoveUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
+        rectTransform = GetComponent<RectTransform>();// Get the RectTransform component of the UI element
 
         originalPosition = rectTransform.anchoredPosition;
         targetPosition = originalPosition;
@@ -21,7 +21,7 @@ public class HoverMoveUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        targetPosition = originalPosition + Vector2.left * moveAmount;
+        targetPosition = originalPosition + Vector2.left * moveAmount;// Move the UI element to the left when the pointer enters
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -31,6 +31,6 @@ public class HoverMoveUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     void Update()
     {
-        rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, targetPosition, speed * Time.deltaTime);
+        rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, targetPosition, speed * Time.deltaTime);// Smoothly move the UI element towards the target position
     }
 }

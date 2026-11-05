@@ -1637,11 +1637,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d330d840fd83e664ab9bb4dd2971b13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DroneEnemy
-  damage: 0
+  damage: 1
   speed: 5
-  attackCooldown: 0
-  attackTime: 0
-  attackRange: 0
+  attackCooldown: 1
+  attackTime: 1
+  attackRange: 1
   rb: {fileID: 0}
   playerPos: {x: 0, y: 0}
   player: {fileID: 2124213667}

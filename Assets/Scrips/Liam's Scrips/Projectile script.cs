@@ -13,10 +13,4 @@ public class Projectilescript : MonoBehaviour
         rb.linearVelocity = transform.up * speed;
         Destroy(gameObject, lifetime);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -14,6 +14,11 @@ public class button : MonoBehaviour
         Application.Quit();
     }
     
+
+    public void loadNextcene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
     public void loadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

@@ -435,11 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d1554cf885f9f44a0e3d12a32a2fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  healthbarBar: {fileID: 1954343144}
   maxHealth: 100
   currentHealth: 0
-  canRegen: 0
-  isEnemy: 0
 --- !u!114 &152333780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,7 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerGunsBase
   hasGun: 0
-  gun: {fileID: 1436314283}
+  gunPivot: {fileID: 0}
   mousePos: {x: 0, y: 0}
   firePoint: {fileID: 261117278}
   shootCooldown: 0.5
@@ -463,6 +460,7 @@ MonoBehaviour:
     m_Bits: 129
   damage: 10
   shootKey: 323
+  bulletPrefab: {fileID: 0}
 --- !u!1 &185516064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2665,9 +2663,12 @@ MonoBehaviour:
   speed: 5
   attackCooldown: 0
   attackTime: 0
+  attackRange: 0
   rb: {fileID: 0}
   playerPos: {x: 0, y: 0}
   player: {fileID: 152333773}
+  agent: {fileID: 0}
+  playerCollider: {fileID: 0}
   canCollideWith:
     serializedVersion: 2
     m_Bits: 65
@@ -2752,11 +2753,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d1554cf885f9f44a0e3d12a32a2fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  healthbarBar: {fileID: 1180359100}
   maxHealth: 50
   currentHealth: 0
-  canRegen: 0
-  isEnemy: 1
 --- !u!114 &1180359107
 MonoBehaviour:
   m_ObjectHideFlags: 0

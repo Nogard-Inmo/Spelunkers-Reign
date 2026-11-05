@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float dashDuration;
     [SerializeField] float dashCooldown;
 
-    [SerializeField] float speed = 6f;
+    PlayerStats playerStats;
 
     [SerializeField] bool isOnLadder;
     [SerializeField] bool isDashing;
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         if (!canWalk) return;
         else
         {
-            Vector2 movement = new Vector2(direction * speed, rb.linearVelocity.y);
+            Vector2 movement = new Vector2(direction * playerStats.speed, rb.linearVelocity.y);
             rb.linearVelocity = movement;
         }
     }
@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void LaderClimb(float verticalDirection)
     {
-        Vector2 movement = new Vector2(rb.linearVelocity.x, verticalDirection * speed);
+        Vector2 movement = new Vector2(rb.linearVelocity.x, verticalDirection * playerStats.speed);
         rb.linearVelocity = movement;
     }
     private IEnumerator Dash()
@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
                 else 
                 { 
                     Vector2 direction = (grapplePoint - (Vector2)transform.position).normalized;
-                    rb.linearVelocity = direction * speed;
+                    rb.linearVelocity = direction * playerStats.speed;
                     yield return null;
 
                     print("Current Position: " + transform.position);

@@ -38,7 +38,11 @@ public class DroneEnemy : EnemyBase
             agent.ResetPath();
             return;
         }
+        else
+        {
             agent.isStopped = false;
+            agent.SetDestination(playerPos);
+        }
     }
 
     private bool HasLineOfSight()

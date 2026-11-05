@@ -798,6 +798,77 @@ MonoBehaviour:
   animator: {fileID: 0}
   speed: 0
   isFacingLeft: 0
+--- !u!1 &1688354341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688354344}
+  - component: {fileID: 1688354343}
+  - component: {fileID: 1688354342}
+  m_Layer: 0
+  m_Name: CenterPoint CamGap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1688354342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688354341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0f42cd8ddf83344bb0c3b0007ae836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Parallaxing
+  centerPoint: {fileID: 0}
+  collisionLayer: {fileID: 0}
+  parallaxLayer1: {fileID: 0}
+  parallaxLayer2: {fileID: 0}
+  foreground: {fileID: 0}
+  backdrop: {fileID: 0}
+  background1: {fileID: 0}
+  background2: {fileID: 0}
+--- !u!114 &1688354343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688354341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4ece0e78f55cb409daa9a1185f3465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room
+  thisRoom: {fileID: 0}
+  pathways: []
+  roomID: 
+  roomType: 
+  roomInstances: 0
+  maxAmount: 0
+--- !u!4 &1688354344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688354341}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.35673, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1763003387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,3 +1148,4 @@ SceneRoots:
   - {fileID: 1849629411}
   - {fileID: 1547793122}
   - {fileID: 525282097}
+  - {fileID: 1688354344}

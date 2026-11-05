@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectilescript
   speed: 25
-  lifetime: 3
+  lifetime: 1.5
   rb: {fileID: 4194317361976493625}
 --- !u!50 &4194317361976493625
 Rigidbody2D:

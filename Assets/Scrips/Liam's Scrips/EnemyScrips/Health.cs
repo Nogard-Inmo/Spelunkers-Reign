@@ -34,6 +34,7 @@ public class Health : MonoBehaviour
     }
     public virtual void Die()
     {
+
         // Handle death (e.g., play animation, destroy object)
         Destroy(gameObject);
     }

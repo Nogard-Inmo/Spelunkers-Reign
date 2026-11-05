@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] bool isGrappling;
     [SerializeField] bool canWalk;
 
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     Vector2 moveInput;
     [SerializeField] LayerMask grappleLayerMask;
 

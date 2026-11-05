@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerGunsBase : MonoBehaviour
 {
@@ -11,12 +12,16 @@ public class PlayerGunsBase : MonoBehaviour
     public float shootCooldownTimer = 0f;
 
     public LayerMask shootLayerMask;
-    public int damage = 10;
 
     public KeyCode shootKey = KeyCode.Mouse0;
 
 
     [SerializeField] private GameObject bulletPrefab;
+    PlayerStats playerStats;
+    int currentAmmo;
+    bool hasAmmo = true;
+    public TMPro.TMP_Text ammoText;
+
 
     //Alex variables
     AnimatePlayer aM;
@@ -24,23 +29,37 @@ public class PlayerGunsBase : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public virtual void Start()
     {
+        //Alexanders
         aM = GetComponent<AnimatePlayer>();
+
+
+        //Liams
+        playerStats = GetComponent<PlayerStats>();
+        currentAmmo = playerStats.ammoCount;
+
     }
 
 
     public virtual void Update()
     {
+        ammoText.text = currentAmmo.ToString() + "/" + playerStats.ammoCount.ToString();
+
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Vector2 aimDir = (mousePos - (Vector2)transform.position).normalized;
             gunPivot.transform.right = aimDir;
         shootCooldownTimer -= Time.deltaTime;
+
         if (shootCooldownTimer < 0f)
             shootCooldownTimer = 0f;
         
-        if(Input.GetKey(shootKey))
+        if(Input.GetKey(shootKey) && hasAmmo)
         {
             Shoot();
+        }
+        if(Input.GetKeyDown(KeyCode.R) && currentAmmo != playerStats.ammoCount)
+        {
+            StartCoroutine(Reload());
         }
     }
 
@@ -54,7 +73,12 @@ public class PlayerGunsBase : MonoBehaviour
 
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
-
+        currentAmmo--;
+        if (currentAmmo <= 0)
+        {
+            hasAmmo = false;
+            StartCoroutine(Reload());
+        }
 
         print("shooting:" + shootLine.collider.name);
         if (shootLine.collider != null)
@@ -67,10 +91,19 @@ public class PlayerGunsBase : MonoBehaviour
 
                 if (targetHealth != null)
                 {
-                    targetHealth.TakeDamage(damage);
+                    targetHealth.TakeDamage(playerStats.damage);
+
                 }
             }
         }
+    }
+    IEnumerator Reload()
+    {
+        currentAmmo = 0;
+        hasAmmo = false;
+        yield return new WaitForSeconds(playerStats.reloadTime);
+        currentAmmo = playerStats.ammoCount;
+        hasAmmo = true;
     }
 
     private void OnDrawGizmos()

@@ -1,10 +1,15 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class PlayerHealth : Health
 {
     [SerializeField] Transform healthbarBar;
     public bool canRegen = true;
+
+    PlayerStats playerStats;
+
+
 
     private void Update()
     {
@@ -18,12 +23,17 @@ public class PlayerHealth : Health
     }
     private void Start()
     {
+        playerStats = GetComponent<PlayerStats>();
+        maxHealth = playerStats.maxHealth;
+        currentHealth = maxHealth;
         StartCoroutine(NaturalHealthRegen());
     }
 
     public void UpdateHealthBar()
     {
-        float ratio = (float)currentHealth / maxHealth;
+        maxHealth = playerStats.maxHealth;
+
+        float ratio = (float)currentHealth / playerStats.maxHealth;
         healthbarBar.localScale = new Vector2(ratio, healthbarBar.localScale.y);// Update the scale of the health bar based on the current health ratio
     }
     IEnumerator NaturalHealthRegen()
@@ -31,11 +41,11 @@ public class PlayerHealth : Health
         while (canRegen)
         {
             yield return new WaitForSeconds(5f); // Wait for 5 seconds
-            if (currentHealth < maxHealth)
+            if (currentHealth < playerStats.maxHealth)
             {
                 currentHealth += 1; // Regenerate 1 health point
-                if (currentHealth > maxHealth)
-                    currentHealth = maxHealth; // Ensure health doesn't exceed max
+                if (currentHealth > playerStats.maxHealth)
+                    currentHealth = playerStats.maxHealth; // Ensure health doesn't exceed max
             }
         }
     }

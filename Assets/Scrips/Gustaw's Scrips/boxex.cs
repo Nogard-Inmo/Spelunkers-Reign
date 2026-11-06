@@ -15,7 +15,7 @@ public class BoxDrop : Health
     {
         if (drops.Length == 0) return;
 
-        int randomDrop = Random.Range(0, drops.Length-1);
+        int randomDrop = Random.Range(0, drops.Length);
 
         Instantiate(
             drops[randomDrop],

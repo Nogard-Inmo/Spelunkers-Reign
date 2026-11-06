@@ -14,18 +14,16 @@ public class button : MonoBehaviour
         Application.Quit();// Quit the application
     }
     
-    public void loadNextcene()
+    public void LoadNextcene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);// Load the next scene in the build index
     }
-    public void loadNextScene()
+    public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);// Load the scene at index 2 in the build index
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);// Load the current scene
     }
-
-    // Update is called once per frame
-    void Update()
+    public void LoadMainMenu()
     {
-        
+        SceneManager.LoadScene(0);// Load the scene at index 0 in the build index
     }
 }

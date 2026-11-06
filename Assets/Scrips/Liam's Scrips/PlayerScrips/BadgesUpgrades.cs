@@ -1,3 +1,4 @@
+using System.Xml.Schema;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +9,8 @@ public class Badges
     public string badgeName;
     public string tooltip;
     public TMP_Text tooltipBox;
-    public Image badgeImage;
+    public Texture badgeImage;
+    
 
     public float ammoMultiplier = 1f;
     public float reloadSpeed = 1f;
@@ -24,10 +26,18 @@ public class BadgesUpgrades : MonoBehaviour
 {
     public Badges[] badges;
     public int badgeSlots = 3; // Number of badge slots available for the player
+    public int amountOfBadgesEquippaed = 0;
+    public GameObject badgeContainer1;
+    public RawImage badge1;
+    public GameObject badgeContainer2;
+    public RawImage badge2;
+    public GameObject badgeContainer3;
+    public RawImage badge3;
+
+
 
     public void ActivateBadge(int badgeIndex)
     {
-        print("Activating badge: " + badges[badgeIndex].badgeName);
         if (badgeIndex < 0 || badgeIndex >= badges.Length)
         {
             Debug.LogError("Invalid badge index");
@@ -48,6 +58,25 @@ public class BadgesUpgrades : MonoBehaviour
             badges[badgeIndex].amountOfBadges--;
             // Increase the amount of this badge equipped
             badges[badgeIndex].amountOfBadgesEquipped++;
+
+            if(amountOfBadgesEquippaed == 0)
+            {
+                badge1.texture = badges[badgeIndex].badgeImage;
+                badgeContainer1.SetActive(true);
+                amountOfBadgesEquippaed++;
+            }
+            else if(amountOfBadgesEquippaed == 1)
+            {
+                badge2.texture = badges[badgeIndex].badgeImage;
+                badgeContainer2.SetActive(true);
+                amountOfBadgesEquippaed++;
+            }
+            else if (amountOfBadgesEquippaed == 2)
+            {
+                badge3.texture = badges[badgeIndex].badgeImage;
+                badgeContainer3.SetActive(true);
+                amountOfBadgesEquippaed++;
+            }
         }
         else
         {

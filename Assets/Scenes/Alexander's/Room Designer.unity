@@ -1525,6 +1525,13 @@ MonoBehaviour:
     amountOfBadges: 1
     amountOfBadgesEquipped: 0
   badgeSlots: 3
+  amountOfBadgesEquippaed: 0
+  badgeContainer1: {fileID: 0}
+  badge1: {fileID: 0}
+  badgeContainer2: {fileID: 0}
+  badge2: {fileID: 0}
+  badgeContainer3: {fileID: 0}
+  badge3: {fileID: 0}
 --- !u!114 &1950575243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1587,6 +1594,8 @@ MonoBehaviour:
   grenadeThrowCooldownTimer: 0
   grenadeThrow: 324
   grenadePrefab: {fileID: 8863642561553029812, guid: 5eb24d93ca5fe6840865d658d0b3bb9d, type: 3}
+  grenadeCooldownUI: {fileID: 0}
+  grenadeDoneUI: {fileID: 0}
 --- !u!114 &1950575246
 MonoBehaviour:
   m_ObjectHideFlags: 0

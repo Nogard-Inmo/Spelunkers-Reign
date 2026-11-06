@@ -27,7 +27,6 @@ public class BadgesUpgrades : MonoBehaviour
 
     public void ActivateBadge(int badgeIndex)
     {
-        print("Activating badge: " + badges[badgeIndex].badgeName);
         if (badgeIndex < 0 || badgeIndex >= badges.Length)
         {
             Debug.LogError("Invalid badge index");

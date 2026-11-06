@@ -9,7 +9,8 @@ public class Badges
     public string badgeName;
     public string tooltip;
     public TMP_Text tooltipBox;
-    public Image badgeImage;
+    public Texture badgeImage;
+    
 
     public float ammoMultiplier = 1f;
     public float reloadSpeed = 1f;
@@ -27,11 +28,11 @@ public class BadgesUpgrades : MonoBehaviour
     public int badgeSlots = 3; // Number of badge slots available for the player
     public int amountOfBadgesEquippaed = 0;
     public GameObject badgeContainer1;
-    public Image badge1;
+    public RawImage badge1;
     public GameObject badgeContainer2;
-    public Image badge2;
+    public RawImage badge2;
     public GameObject badgeContainer3;
-    public Image badge3;
+    public RawImage badge3;
 
 
 
@@ -60,19 +61,19 @@ public class BadgesUpgrades : MonoBehaviour
 
             if(amountOfBadgesEquippaed == 0)
             {
-                badge1 = badges[badgeIndex].badgeImage;
+                badge1.texture = badges[badgeIndex].badgeImage;
                 badgeContainer1.SetActive(true);
                 amountOfBadgesEquippaed++;
             }
             else if(amountOfBadgesEquippaed == 1)
             {
-                badge2 = badges[badgeIndex].badgeImage;
+                badge2.texture = badges[badgeIndex].badgeImage;
                 badgeContainer2.SetActive(true);
                 amountOfBadgesEquippaed++;
             }
             else if (amountOfBadgesEquippaed == 2)
             {
-                badge3 = badges[badgeIndex].badgeImage;
+                badge3.texture = badges[badgeIndex].badgeImage;
                 badgeContainer3.SetActive(true);
                 amountOfBadgesEquippaed++;
             }

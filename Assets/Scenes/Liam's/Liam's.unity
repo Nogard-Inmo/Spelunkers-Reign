@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8493100e7d92944a861bd3349b94ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoxDrop
-  maxHealth: 100
+  maxHealth: 1
   currentHealth: 0
   drops:
   - {fileID: 1045547328285367341, guid: 1c00f1611d7924a4a9d0c23976d7fdc6, type: 3}
@@ -354,6 +354,81 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.2755983}
   m_EdgeRadius: 0
+--- !u!1 &42143661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42143662}
+  - component: {fileID: 42143664}
+  - component: {fileID: 42143663}
+  m_Layer: 5
+  m_Name: Badge3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &42143662
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42143661}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 751742464}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -3.75, y: -29}
+  m_SizeDelta: {x: 23, y: 23}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &42143663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42143661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 4577733927916564596, guid: a56ea6b996565754ab2014f5d602e7ba, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &42143664
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42143661}
+  m_CullTransparentMesh: 1
 --- !u!1 &63024229
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8493100e7d92944a861bd3349b94ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoxDrop
-  maxHealth: 100
+  maxHealth: 1
   currentHealth: 0
   drops:
   - {fileID: 1045547328285367341, guid: 1c00f1611d7924a4a9d0c23976d7fdc6, type: 3}
@@ -577,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8493100e7d92944a861bd3349b94ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoxDrop
-  maxHealth: 100
+  maxHealth: 1
   currentHealth: 0
   drops:
   - {fileID: 1045547328285367341, guid: 1c00f1611d7924a4a9d0c23976d7fdc6, type: 3}
@@ -703,6 +778,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &137608566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 137608567}
+  - component: {fileID: 137608569}
+  - component: {fileID: 137608568}
+  m_Layer: 5
+  m_Name: Badge1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &137608567
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137608566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 751742464}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -3.75, y: 22.8853}
+  m_SizeDelta: {x: 23, y: 23}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &137608568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137608566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 4577733927916564596, guid: a56ea6b996565754ab2014f5d602e7ba, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &137608569
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137608566}
+  m_CullTransparentMesh: 1
 --- !u!1 &144046036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,6 +1272,13 @@ MonoBehaviour:
     amountOfBadges: 1
     amountOfBadgesEquipped: 0
   badgeSlots: 3
+  amountOfBadgesEquippaed: 0
+  badgeContainer1: {fileID: 0}
+  badge1: {fileID: 0}
+  badgeContainer2: {fileID: 0}
+  badge2: {fileID: 0}
+  badgeContainer3: {fileID: 0}
+  badge3: {fileID: 0}
 --- !u!114 &152333783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3657,7 +3814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8493100e7d92944a861bd3349b94ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoxDrop
-  maxHealth: 100
+  maxHealth: 1
   currentHealth: 0
   drops:
   - {fileID: 1045547328285367341, guid: 1c00f1611d7924a4a9d0c23976d7fdc6, type: 3}
@@ -3919,6 +4076,99 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750436766}
+  m_CullTransparentMesh: 1
+--- !u!1 &751742463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 751742464}
+  - component: {fileID: 751742467}
+  - component: {fileID: 751742466}
+  - component: {fileID: 751742465}
+  m_Layer: 5
+  m_Name: badge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &751742464
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751742463}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 137608567}
+  - {fileID: 789244354}
+  - {fileID: 42143662}
+  m_Father: {fileID: 1766095277}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 19, y: -64}
+  m_SizeDelta: {x: 80, y: 128}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &751742465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751742463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7d41dc86183b04b9fa25016cd4e9be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverMoveUI
+  moveAmount: 55
+  speed: 8
+--- !u!114 &751742466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751742463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 6579092177854162160, guid: 82fe3393393170a41b05744d37cfa386, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &751742467
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751742463}
   m_CullTransparentMesh: 1
 --- !u!1 &754182375
 GameObject:
@@ -4195,6 +4445,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 551998124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &789244353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 789244354}
+  - component: {fileID: 789244356}
+  - component: {fileID: 789244355}
+  m_Layer: 5
+  m_Name: Badge2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &789244354
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789244353}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 751742464}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 22, y: -3}
+  m_SizeDelta: {x: 23, y: 23}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &789244355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789244353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 4577733927916564596, guid: a56ea6b996565754ab2014f5d602e7ba, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &789244356
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789244353}
+  m_CullTransparentMesh: 1
 --- !u!1 &804228203
 GameObject:
   m_ObjectHideFlags: 0
@@ -5243,7 +5568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8493100e7d92944a861bd3349b94ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoxDrop
-  maxHealth: 100
+  maxHealth: 1
   currentHealth: 0
   drops:
   - {fileID: 1045547328285367341, guid: 1c00f1611d7924a4a9d0c23976d7fdc6, type: 3}
@@ -5491,7 +5816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8493100e7d92944a861bd3349b94ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoxDrop
-  maxHealth: 100
+  maxHealth: 1
   currentHealth: 0
   drops:
   - {fileID: 1045547328285367341, guid: 1c00f1611d7924a4a9d0c23976d7fdc6, type: 3}
@@ -6929,7 +7254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8493100e7d92944a861bd3349b94ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoxDrop
-  maxHealth: 100
+  maxHealth: 1
   currentHealth: 0
   drops:
   - {fileID: 1045547328285367341, guid: 1c00f1611d7924a4a9d0c23976d7fdc6, type: 3}
@@ -7326,7 +7651,7 @@ MonoBehaviour:
   gunPivot: {fileID: 1996399590}
   mousePos: {x: 0, y: 0}
   firePoint: {fileID: 157131590}
-  shootCooldown: 0.5
+  shootCooldown: 0.25
   shootCooldownTimer: 0
   shootLayerMask:
     serializedVersion: 2
@@ -7544,8 +7869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b60ca1e3c31f9847af7364884e6001d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  ammoCount: 20
-  reloadTime: 5
+  ammoCount: 16
+  reloadTime: 1.8
   regenAmount: 0
   damage: 10
   speed: 6
@@ -7604,6 +7929,13 @@ MonoBehaviour:
     amountOfBadges: 1
     amountOfBadgesEquipped: 0
   badgeSlots: 3
+  amountOfBadgesEquippaed: 0
+  badgeContainer1: {fileID: 137608566}
+  badge1: {fileID: 137608568}
+  badgeContainer2: {fileID: 789244353}
+  badge2: {fileID: 789244355}
+  badgeContainer3: {fileID: 42143661}
+  badge3: {fileID: 42143663}
 --- !u!1 &1723631520
 GameObject:
   m_ObjectHideFlags: 0
@@ -7782,6 +8114,7 @@ RectTransform:
   - {fileID: 1288758471}
   - {fileID: 1496365176}
   - {fileID: 1723631521}
+  - {fileID: 751742464}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8661,7 +8994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8493100e7d92944a861bd3349b94ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoxDrop
-  maxHealth: 100
+  maxHealth: 1
   currentHealth: 0
   drops:
   - {fileID: 1045547328285367341, guid: 1c00f1611d7924a4a9d0c23976d7fdc6, type: 3}

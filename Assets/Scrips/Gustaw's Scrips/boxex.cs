@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class BoxDrop : Health
+public class Boxex : Health
 {
     public GameObject[] drops;
 

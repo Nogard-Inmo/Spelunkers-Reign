@@ -120,7 +120,7 @@ public class PlayerGunsBase : MonoBehaviour
 
         shootCooldownTimer = shootCooldown;
         RaycastHit2D shootLine = Physics2D.Raycast(firePoint.position, mousePos - (Vector2)firePoint.position, Mathf.Infinity, shootLayerMask);
-
+        print(shootLine.collider.name);
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
         currentAmmo--;

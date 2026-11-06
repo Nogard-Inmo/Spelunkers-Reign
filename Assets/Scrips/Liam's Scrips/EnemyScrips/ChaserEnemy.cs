@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class ChaserEnemy : EnemyBase
 {
-    [SerializeField] Collider2D attackHitbox;
+    [SerializeField] Collider2D attackHitbox, attackHitbox2;
     bool playerInHitBox;
 
     private void Update()

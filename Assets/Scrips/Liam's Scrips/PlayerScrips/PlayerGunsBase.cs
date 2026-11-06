@@ -34,6 +34,9 @@ public class PlayerGunsBase : MonoBehaviour
     public KeyCode grenadeThrow = KeyCode.Mouse1;
     public GameObject grenadePrefab;
 
+    public GameObject grenadeCooldownUI;
+    public GameObject grenadeDoneUI;
+
 
     //Alex variables
     AnimatePlayer aM;
@@ -88,6 +91,18 @@ public class PlayerGunsBase : MonoBehaviour
             return;
 
         grenadeThrowCooldownTimer = grenadeThrowCooldown;
+        grenadeThrowCooldownTimer = grenadeThrowCooldown;
+        if (grenadeThrowCooldownTimer >= grenadeThrowCooldown)
+        {
+            grenadeDoneUI.SetActive(true);
+            grenadeCooldownUI.SetActive(false);
+            grenadeThrowCooldownTimer = 0f;
+        }
+        else
+        {
+            grenadeDoneUI.SetActive(false);
+            grenadeCooldownUI.SetActive(true);
+        }
 
         GameObject grenade = Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
 

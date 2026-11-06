@@ -71,7 +71,8 @@ public class PlayerGunsBase : MonoBehaviour
         grenadeThrowCooldownTimer -= Time.deltaTime;
         if(grenadeThrowCooldownTimer < 0f)
             grenadeThrowCooldownTimer = 0f;
-        
+
+       
         if(Input.GetKey(shootKey) && hasAmmo)
         {
             Shoot();
@@ -84,6 +85,15 @@ public class PlayerGunsBase : MonoBehaviour
         {
             ThrowGrenade();
         }
+
+        if (grenadeThrowCooldownTimer > 0)
+        {
+            grenadeDoneUI.SetActive(false);
+        }
+        else
+        {
+            grenadeDoneUI.SetActive(true);
+        }
     }
     public void ThrowGrenade()
     {
@@ -91,18 +101,8 @@ public class PlayerGunsBase : MonoBehaviour
             return;
 
         grenadeThrowCooldownTimer = grenadeThrowCooldown;
-        grenadeThrowCooldownTimer = grenadeThrowCooldown;
-        if (grenadeThrowCooldownTimer >= grenadeThrowCooldown)
-        {
-            grenadeDoneUI.SetActive(true);
-            grenadeCooldownUI.SetActive(false);
-            grenadeThrowCooldownTimer = 0f;
-        }
-        else
-        {
-            grenadeDoneUI.SetActive(false);
-            grenadeCooldownUI.SetActive(true);
-        }
+
+        
 
         GameObject grenade = Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
 

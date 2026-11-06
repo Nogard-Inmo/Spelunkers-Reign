@@ -70,7 +70,8 @@ public class PlayerGunsBase : MonoBehaviour
 
         grenadeThrowCooldownTimer -= Time.deltaTime;
         if(grenadeThrowCooldownTimer < 0f)
-            grenadeThrowCooldownTimer = 0f;
+            grenadeThrowCooldownTimer = 0f;// om den kan kastas sätter den ui bilden till redo om den inte kan
+                                           // kasta är ui bilden tom alltså inte redo//Gustaw
 
        
         if(Input.GetKey(shootKey) && hasAmmo)

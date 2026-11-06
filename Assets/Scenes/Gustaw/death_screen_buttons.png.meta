@@ -1,0 +1,300 @@
+fileFormatVersion: 2
+guid: 2f3b1f5e2400885469d7181c8ca5c4a4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7111104766943646772
+    second: death_screen_buttons_0
+  - first:
+      213: -2395382678212142402
+    second: death_screen_buttons_1
+  - first:
+      213: 4046998947218221298
+    second: death_screen_buttons_2
+  - first:
+      213: -8185416300731663349
+    second: death_screen_buttons_3
+  - first:
+      213: -5058742808878585052
+    second: death_screen_buttons_4
+  - first:
+      213: 8312994548285436563
+    second: death_screen_buttons_5
+  - first:
+      213: 1178851704705136355
+    second: death_screen_buttons_6
+  - first:
+      213: 3282119235200236770
+    second: death_screen_buttons_7
+  - first:
+      213: -131411664612052378
+    second: death_screen_buttons_8
+  - first:
+      213: 9115119861827691843
+    second: death_screen_buttons_9
+  - first:
+      213: 4044894495615978390
+    second: death_screen_buttons_10
+  - first:
+      213: -8013405487342706888
+    second: death_screen_buttons_11
+  - first:
+      213: 7381195767640259577
+    second: death_screen_buttons_12
+  - first:
+      213: 650491311768237075
+    second: death_screen_buttons_13
+  - first:
+      213: 3350125457938325589
+    second: death_screen_buttons_14
+  - first:
+      213: 6447442431966015999
+    second: death_screen_buttons_15
+  - first:
+      213: 329929259128793396
+    second: death_screen_buttons_16
+  - first:
+      213: -9193874427781217792
+    second: death_screen_buttons_17
+  - first:
+      213: 7673825628886857270
+    second: death_screen_buttons_18
+  - first:
+      213: -3684210807063037044
+    second: death_screen_buttons_19
+  - first:
+      213: -7411574180118378464
+    second: death_screen_buttons_20
+  - first:
+      213: 5502699189188912235
+    second: death_screen_buttons_21
+  - first:
+      213: -482518238373398960
+    second: death_screen_buttons_22
+  - first:
+      213: 53997310868334928
+    second: death_screen_buttons_23
+  - first:
+      213: 1887216618420496948
+    second: death_screen_buttons_24
+  - first:
+      213: -2412735843726653223
+    second: death_screen_buttons_25
+  - first:
+      213: 826131421073570027
+    second: death_screen_buttons_26
+  - first:
+      213: 1539796196788220089
+    second: death_screen_buttons_27
+  - first:
+      213: -7172300595681721228
+    second: death_screen_buttons_28
+  - first:
+      213: -2128819293174717525
+    second: death_screen_buttons_29
+  - first:
+      213: -3212114626043495734
+    second: death_screen_buttons_30
+  - first:
+      213: 5096540002703014813
+    second: death_screen_buttons_31
+  - first:
+      213: -4174641992827593821
+    second: death_screen_buttons_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: death_screen_buttons_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 256
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccbacb504e7405d90800000000000000
+      internalID: -7111104766943646772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_screen_buttons_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 90
+        width: 256
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eba9a0c3524e1ced0800000000000000
+      internalID: -2395382678212142402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_screen_buttons_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 60
+        width: 256
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f8625fb914d92830800000000000000
+      internalID: 4046998947218221298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a824a8969368a5d4ea8c8640f4a6925d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":30.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      death_screen_buttons_0: -7111104766943646772
+      death_screen_buttons_1: -2395382678212142402
+      death_screen_buttons_2: 4046998947218221298
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,18 +1,21 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class AnimatePlayer : MonoBehaviour
 {
     PlayerMovement pM;
     PlayerGunsBase pGB;
+    [SerializeField] Quaternion rota;
     [SerializeField] GameObject pivotArm1, pivotArm2;
     [SerializeField] Animator animator;
     [SerializeField] float speed;
-    public bool isFacingLeft = false;
     private void Awake()
     {
         pGB = GetComponent<PlayerGunsBase>();
         pM = GetComponent<PlayerMovement>();
         animator = GetComponent<Animator>();
+        pivotArm1 = pGB.gunPivot.transform.GetChild(0).gameObject;
+        pivotArm2 = pGB.gunPivot.transform.GetChild(1).gameObject;
     }
     
     private void Animate()
@@ -25,24 +28,32 @@ public class AnimatePlayer : MonoBehaviour
     {
         if (Input.GetKey(pM.left))
         {
-            isFacingLeft = true;
+            GetComponent<SpriteRenderer>().flipX = true;
         }
         if (Input.GetKey(pM.right))
         {
-            isFacingLeft = false;
+            GetComponent<SpriteRenderer>().flipX = false;
         }
-        if (isFacingLeft)
+        if (pGB.gunPivot.transform.rotation.z >= 90)
         {
-            transform.rotation = new Quaternion(0, 180, 0, 0);
+            pivotArm1.GetComponent<SpriteRenderer>().flipY = false;
+            pivotArm2.GetComponent<SpriteRenderer>().flipY = false;
         }
-        if (!isFacingLeft)
+        else if (pGB.gunPivot.transform.rotation.z < 90)
         {
-            transform.rotation = new Quaternion(0, 0, 0, 0);
+            pivotArm1.GetComponent<SpriteRenderer>().flipY = true;
+            pivotArm2.GetComponent<SpriteRenderer>().flipY = true;
+        }
+        else
+        {
+            pivotArm1.GetComponent<SpriteRenderer>().flipY = false;
+            pivotArm2.GetComponent<SpriteRenderer>().flipY = false;
         }
     }
 
     private void Update()
     {
+        rota = pGB.gunPivot.transform.rotation;
         Animate();
     }
 

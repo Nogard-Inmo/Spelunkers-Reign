@@ -12,7 +12,6 @@ public class Health : MonoBehaviour
     void Awake()
     {
         currentHealth = maxHealth;
-        
     }
     public virtual void TakeDamage(int damage)
     {
@@ -21,6 +20,7 @@ public class Health : MonoBehaviour
             Debug.LogWarning("Damage cannot be negative.");
             return;
         }
+        StartCoroutine(DamageColorFlash());
         if(currentHealth - damage < 0)
             currentHealth = 0;
 
@@ -37,5 +37,14 @@ public class Health : MonoBehaviour
 
         // Handle death (e.g., play animation, destroy object)
         Destroy(gameObject);
+    }
+    IEnumerator DamageColorFlash()
+    {
+        SpriteRenderer enemySR = GetComponent<SpriteRenderer>();
+
+        enemySR.color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        enemySR.color = Color.white;
+
     }
 }

@@ -14,8 +14,9 @@ public class AnimatePlayer : MonoBehaviour
         pGB = GetComponent<PlayerGunsBase>();
         pM = GetComponent<PlayerMovement>();
         animator = GetComponent<Animator>();
-        pivotArm1 = pGB.gunPivot.transform.GetChild(0).gameObject;
-        pivotArm2 = pGB.gunPivot.transform.GetChild(1).gameObject;
+
+        pivotArm1 = pGB.gunPivotFront.transform.GetChild(0).gameObject;
+        pivotArm2 = pGB.gunPivotBack.transform.GetChild(0).gameObject;
     }
     
     private void Animate()
@@ -34,14 +35,20 @@ public class AnimatePlayer : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = false;
         }
-        if (pGB.gunPivot.transform.rotation.z >= 90)
+        if (pGB.gunPivotFront.transform.rotation.z >= 90)
         {
             pivotArm1.GetComponent<SpriteRenderer>().flipY = false;
+        }
+        if(pGB.gunPivotBack.transform.rotation.z >= 90)
+        {
             pivotArm2.GetComponent<SpriteRenderer>().flipY = false;
         }
-        else if (pGB.gunPivot.transform.rotation.z < 90)
+        else if (pGB.gunPivotFront.transform.rotation.z < 90)
         {
             pivotArm1.GetComponent<SpriteRenderer>().flipY = true;
+        }
+        else if (pGB.gunPivotBack.transform.rotation.z < 90)
+        {
             pivotArm2.GetComponent<SpriteRenderer>().flipY = true;
         }
         else
@@ -53,7 +60,7 @@ public class AnimatePlayer : MonoBehaviour
 
     private void Update()
     {
-        rota = pGB.gunPivot.transform.rotation;
+        //rota = pGB.gunPivot.transform.rotation;
         Animate();
     }
 

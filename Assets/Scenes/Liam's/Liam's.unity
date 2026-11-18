@@ -214,7 +214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &42143662
 RectTransform:
   m_ObjectHideFlags: 0
@@ -321,7 +321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &137608567
 RectTransform:
   m_ObjectHideFlags: 0
@@ -714,7 +714,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerGunsBase
   hasGun: 1
-  gunPivot: {fileID: 350200168}
+  gunPivotFront: {fileID: 0}
+  gunPivotBack: {fileID: 0}
   mousePos: {x: 0, y: 0}
   firePoint: {fileID: 261117278}
   shootCooldown: 0.5
@@ -746,6 +747,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHealth: 4
   currentHealth: 0
+  enemySR: {fileID: 0}
+  enemyFlashTime: 0
   healthbarBar: {fileID: 1954343144}
   canRegen: 1
 --- !u!114 &152333782
@@ -880,7 +883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &158130188
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1092,6 +1095,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 70
   currentHealth: 0
+  enemySR: {fileID: 0}
+  enemyFlashTime: 0.3
 --- !u!1 &174642197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,7 +2113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &286640917
 Transform:
   m_ObjectHideFlags: 0
@@ -4131,7 +4136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &789244354
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4203,7 +4208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &804228204
 SpriteRenderer:
   serializedVersion: 2
@@ -4670,7 +4675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 986365802}
   m_Layer: 0
-  m_Name: Pivotpoint RightArm
+  m_Name: Pivotpoint backArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5097,7 +5102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1180359099
 SpriteRenderer:
   serializedVersion: 2
@@ -5167,7 +5172,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.8, y: 1.6, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5232,7 +5237,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.009978294, y: 0.02439119}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5242,7 +5247,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.2567292, y: 0.15935689}
+  m_Size: {x: 0.3003378, y: 0.20813927}
   m_EdgeRadius: 0
 --- !u!195 &1180359105
 NavMeshAgent:
@@ -5280,6 +5285,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 50
   currentHealth: 0
+  enemySR: {fileID: 0}
+  enemyFlashTime: 0.3
 --- !u!114 &1180359107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6917,6 +6924,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHealth: 100
   currentHealth: 0
+  enemySR: {fileID: 0}
+  enemyFlashTime: 0
   healthbarBar: {fileID: 1954343144}
   canRegen: 1
 --- !u!114 &1626856908
@@ -6932,7 +6941,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerGunsBase
   hasGun: 1
-  gunPivot: {fileID: 1996399590}
+  gunPivotFront: {fileID: 1996399590}
+  gunPivotBack: {fileID: 986365801}
   mousePos: {x: 0, y: 0}
   firePoint: {fileID: 157131590}
   shootCooldown: 0.25
@@ -6949,7 +6959,7 @@ MonoBehaviour:
   grenadeThrow: 324
   grenadePrefab: {fileID: 8863642561553029812, guid: 5eb24d93ca5fe6840865d658d0b3bb9d, type: 3}
   grenadeCooldownUI: {fileID: 638962836}
-  grenadeDoneUI: {fileID: 0}
+  grenadeDoneUI: {fileID: 174642197}
 --- !u!114 &1626856909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7137,8 +7147,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 986365802}
   - {fileID: 1996399591}
+  - {fileID: 986365802}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1626856915
@@ -7490,7 +7500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1831156371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7598,7 +7608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1847968915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8347,6 +8357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoxDrop
   maxHealth: 1
   currentHealth: 0
+  enemySR: {fileID: 0}
+  enemyFlashTime: 0
   drops:
   - {fileID: 1045547328285367341, guid: 1c00f1611d7924a4a9d0c23976d7fdc6, type: 3}
   - {fileID: 1045547328285367341, guid: 9c44742aee32d9346a5036af6b824399, type: 3}
@@ -8361,7 +8373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1996399591}
   m_Layer: 0
-  m_Name: PivotPoint Leftarn
+  m_Name: PivotPoint Frontarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

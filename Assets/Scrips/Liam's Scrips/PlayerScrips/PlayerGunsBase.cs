@@ -60,7 +60,7 @@ public class PlayerGunsBase : MonoBehaviour
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector2 aimDir = (mousePos - (Vector2)transform.position).normalized;
+        Vector2 aimDir = (mousePos - (Vector2)transform.position);
         gunPivotFront.transform.right = aimDir;
         gunPivotBack.transform.right = aimDir;
         shootCooldownTimer -= Time.deltaTime;

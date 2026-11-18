@@ -7,7 +7,7 @@ public class PlayerGunsBase : MonoBehaviour
     //Gun stuff
     [Header("Gun Settings")]
     public bool hasGun = false;
-    public GameObject gunPivot;
+    public GameObject gunPivotFront, gunPivotBack;
     public Vector2 mousePos;
     public Transform firePoint;
     public float shootCooldown = 0.5f;
@@ -61,7 +61,8 @@ public class PlayerGunsBase : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Vector2 aimDir = (mousePos - (Vector2)transform.position).normalized;
-            gunPivot.transform.right = aimDir;
+        gunPivotFront.transform.right = aimDir;
+        gunPivotBack.transform.right = aimDir;
         shootCooldownTimer -= Time.deltaTime;
 
         if (shootCooldownTimer < 0f)

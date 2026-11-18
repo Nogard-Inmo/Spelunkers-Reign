@@ -733,7 +733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &225090769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1227,6 +1227,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &297704589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297704590}
+  m_Layer: 6
+  m_Name: 'Pivotpoint backarm '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297704590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297704589}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.099, y: 0.255, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1205823209}
+  m_Father: {fileID: 1268192957}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &300521968 stripped
 GameObject:
@@ -3102,7 +3134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1064373063}
   m_Layer: 6
-  m_Name: PivotPoint
+  m_Name: PivotPoint frontarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3122,7 +3154,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1277208733}
-  - {fileID: 1205823209}
   - {fileID: 729350874}
   m_Father: {fileID: 1268192957}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3459,11 +3490,11 @@ Transform:
   m_GameObject: {fileID: 1205823207}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25590003, y: 0.00009994209, z: 0}
+  m_LocalPosition: {x: 0.13589999, y: -0.035900056, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1064373063}
+  m_Father: {fileID: 297704590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1231393594
 GameObject:
@@ -3906,11 +3937,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aedda3347fc1e14aa90d64acb5c6875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimatePlayer
+  rota: {x: 0, y: 0, z: 0, w: 0}
   pivotArm1: {fileID: 1277208732}
   pivotArm2: {fileID: 1205823207}
   animator: {fileID: 0}
   speed: 0
-  isFacingLeft: 0
 --- !u!114 &1268192950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3940,7 +3971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerGunsBase
   hasGun: 1
-  gunPivot: {fileID: 1064373062}
+  gunPivotFront: {fileID: 1064373062}
+  gunPivotBack: {fileID: 297704589}
   mousePos: {x: 0, y: 0}
   firePoint: {fileID: 729350874}
   shootCooldown: 0.25
@@ -4146,6 +4178,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1064373063}
+  - {fileID: 297704590}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1277208732
@@ -4328,7 +4361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1323261106
 MonoBehaviour:
   m_ObjectHideFlags: 0
